@@ -1,16 +1,50 @@
+import mptt 
+from mptt.models import MPTTModel
+from mptt.fields import TreeForeignKey
+from django.contrib.auth.models import Group
 from django.db import models
 from django.urls import reverse
 
 
-class Category(models.Model):
+class Category(MPTTModel):
     name = models.CharField(db_index=True,
                                    max_length=200)
+
+    parent = TreeForeignKey('self', on_delete=models.CASCADE,
+                            null=True, blank=True,
+                            related_name='children')
+
     slug = models.SlugField(unique=True,
                             max_length=200)
     class Meta:
         ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
+
+    class MPTTMeta:
+        order_insertion_by=['name']
+
+    def get_slug_list(self):
+        try:
+            ancestors = self.get_ancestors(include_self=True)
+        except:
+            ancestors = []
+        else:
+            ancestors = [i.slug for i in ancestors]
+        
+        slugs = []
+        for i in range(len(ancestors)):
+            slugs.append('/'.join(ancestors[:i+1]))
+        return slugs
+
+    @property
+    def get_products(self):
+        products = list()
+        print(*self.get_children())
+        for category in self.get_children():
+            print('hi')
+            products.append(Product.objects.filter(category__name=category.name))
+        return products
 
     def __str__(self):
         return self.name
@@ -44,3 +78,13 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_detail',
                        args=[self.id, self.slug])    
+
+    def get_cat_list(self):
+        k = self.category
+        breadcrumb = ["dummy"]
+        while k is not None:
+            breadcrumb.append(k.slug)
+            k = k.parent
+        for i in range(len(breadcrumb) - 1):
+            breadcrumb[i] = "/".join(breadcrumb[-1 : i - 1 : -1])
+        return breadcrumb[-1:0:-1]                       

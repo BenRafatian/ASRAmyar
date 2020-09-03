@@ -1,13 +1,15 @@
-from django.urls import path
-from . import views
+from django.urls import path, re_path
+from django.views.generic import TemplateView
 
-app_name = 'shop'
+from .views import ProductDetailView, ProductListView, show_category
+
+app_name = "shop"
 
 urlpatterns = [
-    path('', views.product_list, name='product_list'),
-    path('<slug:category_slug>/', views.product_list,
-         name='product_list_by_category'),
-    path('<int:id>/<slug:slug>/', views.product_detail,
-         name='product_detail'),
-
-]
+    path("", TemplateView.as_view(template_name="shop/base.html")),
+#     re_path(r"^category/(?P<hierarchy>.+)/$", show_category, name="category"),
+    path("products/", ProductListView.as_view(), name="products"),
+    path("products/<slug:slug>/", ProductDetailView.as_view(), name="product",),
+    path("categories/", show_category, name="category")
+   
+]    

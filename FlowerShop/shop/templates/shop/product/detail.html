@@ -1,0 +1,19 @@
+{% extends 'shop/base.html' %}
+{% load namify %}
+
+
+{% block title %}
+{{ product.name }}
+{% endblock title %}
+
+
+{% block content %}
+<ul class="breadcrumbs">
+    <li><a href="/">Home</a></li>
+
+    {% for i in instance.category.get_slug_list %}
+    <li><a href="/category/{{ i }}">{{ i | get_name }}</a></li>
+    {% endfor %}
+
+</ul>
+{% endblock content %}
