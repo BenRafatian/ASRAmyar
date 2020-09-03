@@ -7,9 +7,9 @@ app_name = "shop"
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="shop/base.html")),
-#     re_path(r"^category/(?P<hierarchy>.+)/$", show_category, name="category"),
+    #     re_path(r"^category/(?P<hierarchy>.+)/$", show_category, name="category"),
     path("products/", ProductListView.as_view(), name="products"),
     path("products/<slug:slug>/", ProductDetailView.as_view(), name="product",),
-    path("categories/", show_category, name="category")
-   
-]    
+    path("categories/", show_category, name="category"),
+
+]

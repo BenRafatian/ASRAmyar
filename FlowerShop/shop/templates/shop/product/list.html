@@ -1,24 +1,24 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% block content %}
-  <div id="sidebar">
-    <h3>Categories</h3>
-          {{Products.name}}
-     categories will be shown here later!
-  </div>
-  
+<div id="sidebar">
+  <h3>Categories</h3>
+  {{Products.name}}
+  categories will be shown here later!
+</div>
 
-    <div id="main" class="product-list">
-        {% for product in products %}
-            <div class="item">
-              <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "images/no_image.png" %}{% endif %}">
-               <a href='#'>{{ product }} </a>
-               <br> 
-            price: {{product.price}}$
-            </div>
-        {% endfor %}
-        
-    </div>
-    
-     
+
+<div id="main" class="product-list">
+  {% for product in products %}
+  <div class="item">
+    <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "images/no_image.png" %}{% endif %}">
+    <a href='{{ product.get_absolute_url }}'>{{ product }} </a>
+    <br>
+    price: {{product.price}}$
+  </div>
+  {% endfor %}
+
+</div>
+
+
 {% endblock %}

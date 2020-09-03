@@ -6,26 +6,21 @@ from .models import Product, Category
 
 
 class ProductDetailView(DetailView):
-    Model = Product
+    model = Product
+    template_name = 'shop/product/detail.html'
     context_object_name = "product"
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 
 class ProductListView(ListView):
     model = Product
     context_object_name = "products"
-    
+
     template_name = 'shop/product/list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["categories"] = Product.category
-        
-        
+
         return context
 
 
