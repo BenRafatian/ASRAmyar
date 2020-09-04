@@ -1,4 +1,5 @@
 {% load static %}
+{% load thumbnail %}
 <!doctype html>
 <html lang="en">
 
@@ -31,8 +32,10 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    Welcome
-                    <a href="{% url 'users:profile' %}">{{ user.username }}</a>
+                    <a href="{% url 'users:profile' %}">
+                        <img src="{% thumbnail user.profile.image 0x50 %}" class="rounded-circle pt-2">
+                        {{ user.username }}
+                    </a>
                 </li>
                 <li class="nav-item">
 
@@ -60,13 +63,7 @@
         {% endblock content %}
     </div>
     <!-- Footer -->
-    <div class="container-fluid">
-        <footer id="sticky-footer" class="py-4 bg-dark text-white">
-            <div class="container text-center">
-                <small>Copyright &copy; KuBen limited</small>
-            </div>
-        </footer>
-    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

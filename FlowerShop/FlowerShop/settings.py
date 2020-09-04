@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'mptt',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
