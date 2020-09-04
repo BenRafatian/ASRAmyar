@@ -19,6 +19,7 @@ class Category(MPTTModel):
 
     class Meta:
         ordering = ('name',)
+        unique_together = ('slug', 'parent',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
@@ -41,19 +42,30 @@ class Category(MPTTModel):
     @property
     def get_products(self):
         products = list()
-        print(*self.get_children())
-        for category in self.get_children():
-            print('hi')
-            products.append(Product.objects.filter(
-                category__name=category.name))
-        return products
 
+        for category in self.get_descendants():
+            i = [product for product in Product.objects.filter(
+                category__name=category.name)]
+            products.append(i)
+        products.append(Product.objects.filter(category__name=self.name))
+        return products
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_list_by_category',
+        if (self.parent == None):
+
+            return reverse('shop:ProductListByCategory',
                        args=[self.slug])
+        else:
+            slug=self.slug
+            parents = self.get_ancestors()
+            parents = parents.reverse()
+            for parent in parents:
+                slug = parent.slug + "/" + slug
+            return reverse('shop:ProductListByCategory',
+                        args=[slug])
+
 
 
 class Product(models.Model):
