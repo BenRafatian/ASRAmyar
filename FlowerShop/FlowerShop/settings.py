@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
+    'cart.apps.CartConfig',
+
     'crispy_forms',
     'mptt',
     'easy_thumbnails',
@@ -120,3 +122,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'shop:products'
 LOGIN_URL = 'users:login'
+
+CART_SESSION_ID = 'cart'
