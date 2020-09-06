@@ -7,46 +7,46 @@
 {{ instance}}
 {% endblock title %}
 
-{% block content %} 
+{% block content %}
 
 <div id="sidebar">
-<h3>Categories</h3>
-<ul class="root">
-        
+    <h3>Categories</h3>
+    <ul class="root">
+
         {% recursetree categories%}
         <li>
-            <a href="{{node.get_absolute_url }}">{{ node.name }}</a>
-             {% if not node.is_leaf_node %}
-                <ul class="children">
-                  <a href="{{node.get_absolute_url }}">{{ children }} </a>
-                </ul>
-            {% endif %} 
+            <a href="{{node.get_absolute_url }}" class="btn btn-secondary">{{ node.name }}</a>
+            {% if not node.is_leaf_node %}
+            <ul class="children">
+                <a href="{{node.get_absolute_url }}" class="btn btn-secondary">{{ children }} </a>
+            </ul>
+            {% endif %}
         </li>
 
-        {% endrecursetree %} 
+        {% endrecursetree %}
 
-</ul>
+    </ul>
 </div>
-    <div id="main" class="product-detail">
+<div id="main" class="product-detail">
     {% with parents=instance.category.get_ancestors%}
     <h5>
-    <a href="{% url 'shop:products' %}">All Products</a> /
-    {% for parent in parents %}
-    <a href="{{instance.category.parent.get_absolute_url }}"> {{parent.name}} </a>  /
-    {% endfor %}
-    <a href="{{instance.category.get_absolute_url }}">  {{ instance.category.name }} </a> 
+        <a href="{% url 'shop:products' %}">All Products</a> /
+        {% for parent in parents %}
+        <a href="{{instance.category.parent.get_absolute_url }}"> {{parent.name}} </a> /
+        {% endfor %}
+        <a href="{{instance.category.get_absolute_url }}"> {{ instance.category.name }} </a>
     </h5>
-    {% endwith %} 
-        <div class="item">
-            <img src="{% if instance.image %}{{ instance.image.url }}{% else %}
+    {% endwith %}
+    <div class="item">
+        <img src="{% if instance.image %}{{ instance.image.url }}{% else %}
             {% static 'images/no_image.png' %}{% endif %}" alt='{{ instance.name }}'>
-            <h1>{{ instance }}</h1>
-            <br>
-            <p class="price">
-                price: {{instance.price}}$
-            </p>
-            <h2>{{ instance.description }}</h2>
-        </div>
+        <h1>{{ instance }}</h1>
+        <br>
+        <p class="price">
+            price: {{instance.price}}$
+        </p>
+        <h2>{{ instance.description }}</h2>
     </div>
+</div>
 
 {% endblock content %}
