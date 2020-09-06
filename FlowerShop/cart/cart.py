@@ -1,7 +1,7 @@
 from django.conf import settings
 from decimal import Decimal
 
-from FlowerShop.shop.models import Product
+from shop.models import Product
 
 
 class Cart(object):

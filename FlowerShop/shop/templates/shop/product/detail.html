@@ -4,7 +4,7 @@
 {% load mptt_tags %}
 
 {% block title %}
-{{ instance}}
+{{ product}}
 {% endblock title %}
 
 {% block content %}
@@ -30,24 +30,29 @@
     </ul>
 </div>
 <div id="main" class="product-detail">
-    {% with parents=instance.category.get_ancestors%}
+    {% with parents=product.category.get_ancestors%}
     <h5>
         <a href="{% url 'shop:products' %}">All Products</a> /
         {% for parent in parents %}
-        <a href="{{instance.category.parent.get_absolute_url }}"> {{parent.name}} </a> /
+        <a href="{{product.category.parent.get_absolute_url }}"> {{parent.name}} </a> /
         {% endfor %}
-        <a href="{{instance.category.get_absolute_url }}"> {{ instance.category.name }} </a>
+        <a href="{{product.category.get_absolute_url }}"> {{ product.category.name }} </a>
     </h5>
     {% endwith %}
     <div class="item">
-        <img src="{% if instance.image %}{{ instance.image.url }}{% else %}
-            {% static 'images/no_image.png' %}{% endif %}" alt='{{ instance.name }}'>
-        <h1>{{ instance }}</h1>
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}
+            {% static 'images/no_image.png' %}{% endif %}" alt='{{ product.name }}'>
+        <h1>{{ product }}</h1>
         <br>
         <p class="price">
-            price: {{instance.price}}$
+            price: {{product.price}}$
         </p>
-        <h2>{{ instance.description }}</h2>
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+        <h2>{{ product.description }}</h2>
     </div>
 </div>
 

@@ -26,15 +26,15 @@
     </ul>
 </div>
 <div id="main" class="product-list">
-    {% with parents=instance.get_ancestors%}
+    {% with parents=product.get_ancestors%}
     <h2>
         <a href="{% url 'shop:products' %}">All Products</a> /
         {% for parent in parents %}
-        <a href="{{instance.parent.get_absolute_url }}"> {{parent.name}} </a> /
+        <a href="{{product.parent.get_absolute_url }}"> {{parent.name}} </a> /
         {% endfor %}
-        {{ instance.name }}
+        {{ product.name }}
     </h2>
-    {% with cat_products=instance.get_products %}
+    {% with cat_products=product.get_products %}
     {% for products in cat_products %}
     {% for product in products %}
 
