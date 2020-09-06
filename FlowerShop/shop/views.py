@@ -9,7 +9,8 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/product/detail.html'
     context_object_name = "product"
-
+    
+    
 
 class ProductListView(ListView):
     model = Product
@@ -26,17 +27,6 @@ class ProductListView(ListView):
 
         return context
 
-class ProductListByCategoryView(ListView):
-    model = Product
-    context_object_name = "products"
-    template_name = 'shop/product/list.html'
-
-    def get_context_data(self, **kwargs):
-        
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Category.objects.all()
-
-        return context
 
 def show_category(request, hierarchy=None):
     if hierarchy is None:

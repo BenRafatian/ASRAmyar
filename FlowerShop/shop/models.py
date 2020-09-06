@@ -54,7 +54,7 @@ class Category(MPTTModel):
 
     def get_absolute_url(self):
         if (self.parent == None):
-
+ 
             return reverse('shop:ProductListByCategory',
                        args=[self.slug])
         else:
@@ -90,7 +90,12 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
+        
         return reverse('shop:product', args=[str(self.slug)])
+
+
+
+
 
     def get_cat_list(self):
         k = self.category

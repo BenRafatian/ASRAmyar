@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 
 from .views import ProductDetailView, ProductListView, show_category
 
-app_name = "shop"
+app_name = "shop" 
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="shop/base.html")),
