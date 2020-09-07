@@ -19,7 +19,6 @@ def order_create(request):
             # clear the cart
             cart.clear()
             order_created.delay(order.id)
-            print(request)
             return render(request,
                           'orders/order/created.html',
                           {'order': order})

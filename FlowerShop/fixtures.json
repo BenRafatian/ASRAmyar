@@ -1,0 +1,86 @@
+[
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "name": "Plants",
+    "parent": null,
+    "slug": "plants",
+    "lft": 1,
+    "rght": 6,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "name": "Flowers",
+    "parent": 3,
+    "slug": "flowers",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 5,
+  "fields": {
+    "name": "Trees",
+    "parent": 3,
+    "slug": "trees",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "category": 4,
+    "name": "Rose",
+    "slug": "rose",
+    "image": "",
+    "description": "",
+    "price": "1.00",
+    "available": true,
+    "created": "2020-09-03T07:28:26.742Z",
+    "updated": "2020-09-03T07:28:26.743Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "category": 5,
+    "name": "Pine Tree",
+    "slug": "pine-tree",
+    "image": "",
+    "description": "This is a super fucked up tree. Don't buy it.",
+    "price": "2.00",
+    "available": true,
+    "created": "2020-09-03T07:53:16.277Z",
+    "updated": "2020-09-03T17:18:55.638Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "category": 4,
+    "name": "tulipe",
+    "slug": "tulipe",
+    "image": "",
+    "description": "",
+    "price": "1.00",
+    "available": true,
+    "created": "2020-09-03T09:36:19.536Z",
+    "updated": "2020-09-03T09:36:19.536Z"
+  }
+}
+]

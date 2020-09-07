@@ -1,0 +1,46 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% load mptt_tags %}
+
+{% block title %}
+Results
+{% endblock title %}
+
+
+{% block content %}
+
+<div id="sidebar">
+    <h3>Categories</h3>
+    <ul class="root">
+        {% recursetree categories %}
+        <li>
+            <a href="{{node.get_absolute_url }}" class="btn btn-secondary">{{ node.name }}</a>
+            {% if not node.is_leaf_node %}
+            <ul class="children">
+                <a href="{{node.get_absolute_url }}">{{ children }} </a>
+            </ul>
+            {% endif %}
+        </li>
+
+
+        {% endrecursetree %}
+    </ul>
+
+</div>
+
+
+<h1>Search Results:</h1>
+<div id="main" class="product-list">
+    {% for product in products %}
+    <div class="item">
+        <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "images/no_image.png" %}{% endif %}">
+        <a href='{{ product.get_absolute_url }}'>{{ product }}
+        </a>
+        <br>
+        price:
+        {{product.price}}$
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock content %}

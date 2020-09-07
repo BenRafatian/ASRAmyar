@@ -47,3 +47,22 @@ def product_detail_or_list_by_category(request, hierarchy=None):
         )
     else:
         return render(request, "shop/product/categories.html", {"product": product, "categories": root})
+
+
+class SearchResultsView(ListView):
+    model = Product
+    template_name = "shop/product/search_results.html"
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Product.objects.filter(
+            Q(name__icontains=query)
+        )
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
+
+        return context
