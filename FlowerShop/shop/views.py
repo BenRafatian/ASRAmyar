@@ -3,8 +3,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.db.models import Q
 
+
 from .models import Product, Category
 from cart.forms import CartAddProductForm
+from .recommender import Recommender
 
 
 class ProductDetailView(DetailView):
@@ -32,21 +34,36 @@ def product_detail_or_list_by_category(request, hierarchy=None):
     parent = None
     root = Category.objects.all()
     categories = Category.objects.all()
+
     cart_product_form = CartAddProductForm()
+
     for slug in category_slug[:-1]:
         parent = root.get(parent=parent, slug=slug)
 
     try:
         product = Category.objects.get(parent=parent, slug=category_slug[-1])
+        print('11111111111111111111111111')
+        # r = Recommender()
+        # recommended_products = r.suggest_product_for([product], 4)
     except:
         product = get_object_or_404(Product, slug=category_slug[-1])
-        print(product.id)
+        r = Recommender()
+        recommended_products = r.suggest_products_for([product], 4)
+
         return render(
             request, "shop/product/detail.html", {
-                "product": product, "categories": root, 'cart_product_form': cart_product_form}
+                "product": product, "categories": root, 'cart_product_form': cart_product_form, 'recommended_products': recommended_products}
         )
     else:
-        return render(request, "shop/product/categories.html", {"product": product, "categories": root})
+        r = Recommender()
+        recommended_products = r.suggest_products_for([product], 4)
+
+        context = {
+            "product": product,
+            "categories": root,
+            'recommended_products': recommended_products
+        }
+        return render(request, "shop/product/categories.html", context=context)
 
 
 class SearchResultsView(ListView):

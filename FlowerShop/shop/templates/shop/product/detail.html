@@ -8,40 +8,38 @@
 {% endblock title %}
 
 {% block content %}
-
 <div id="sidebar">
     <h3>Categories</h3>
     <ul class="root">
-
         {% recursetree categories%}
         <li>
             <a href="{{node.get_absolute_url }}" class="btn btn-secondary">{{ node.name }}</a>
             {% if not node.is_leaf_node %}
             <ul class="children">
-                <a href=" {{node.get_absolute_url }}">{{ children }}
-
+                <a href=" {{node.get_absolute_url }}">
+                    {{ children }}
                 </a>
             </ul>
             {% endif %}
         </li>
-
         {% endrecursetree %}
-
     </ul>
 </div>
 <div id="main" class="product-detail">
     {% with parents=product.category.get_ancestors%}
-    <h5>
-        <a href="{% url 'shop:products' %}">All Products</a> /
+    <h2>
+        <a href="{% url 'shop:products' %}">All Products</a>
+        /
         {% for parent in parents %}
-        <a href="{{product.category.parent.get_absolute_url }}"> {{parent.name}} </a> /
+        <a href="{{product.category.parent.get_absolute_url }}"> {{parent.name}}</a>
+        /
         {% endfor %}
-        <a href="{{product.category.get_absolute_url }}"> {{ product.category.name }} </a>
-    </h5>
+        <a href="{{product.category.get_absolute_url }}"> {{ product.category.name }}</a>
+    </h2>
     {% endwith %}
     <div class="item">
         <img src="{% if product.image %}{{ product.image.url }}{% else %}
-            {% static 'images/no_image.png' %}{% endif %}" alt='{{ product.name }}'>
+            {% static 'images/no_image.png' %}{% endif %}" alt="{{ product.name }}">
         <h1>{{ product }}</h1>
         <br>
         <p class="price">
@@ -55,5 +53,22 @@
         <h2>{{ product.description }}</h2>
     </div>
 </div>
-
+<div class="recommendation">
+    <h1>Recommendation</h1>
+    {% if recommended_products %}
+    <div class="recommendations">
+        <h3>People who bought this also bought</h3>
+        {% for p in recommended_products %}
+        <div class="item">
+            <a href="{{ p.get_absolute_url }}">
+                <img src="{% if p.image %}{{ p.image.url }}{% else %}{% static 'images/no_image.png' %}{% endif %}">
+            </a>
+            <p>
+                <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 {% endblock content %}
