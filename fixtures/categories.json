@@ -1,0 +1,810 @@
+[{
+        "model": "shop.category",
+        "pk": 6,
+        "fields": {
+            "name": "Accessories",
+            "parent": null,
+            "slug": "accessories",
+            "lft": 1,
+            "rght": 6,
+            "tree_id": 1,
+            "level": 0
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 7,
+        "fields": {
+            "name": "Plants",
+            "parent": null,
+            "slug": "plants",
+            "lft": 1,
+            "rght": 32,
+            "tree_id": 2,
+            "level": 0
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 8,
+        "fields": {
+            "name": "House Plants",
+            "parent": 7,
+            "slug": "house-plants",
+            "lft": 16,
+            "rght": 23,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 9,
+        "fields": {
+            "name": "Garden Plants",
+            "parent": 7,
+            "slug": "garden-plants",
+            "lft": 10,
+            "rght": 15,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 10,
+        "fields": {
+            "name": "Bonsai",
+            "parent": 7,
+            "slug": "bonsai",
+            "lft": 2,
+            "rght": 9,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 11,
+        "fields": {
+            "name": "Plants in Pot",
+            "parent": 7,
+            "slug": "plants-pot",
+            "lft": 30,
+            "rght": 31,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 12,
+        "fields": {
+            "name": "Office Plants",
+            "parent": 7,
+            "slug": "office-plants",
+            "lft": 24,
+            "rght": 29,
+            "tree_id": 2,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 13,
+        "fields": {
+            "name": "Bulbs",
+            "parent": 8,
+            "slug": "bulbs",
+            "lft": 17,
+            "rght": 18,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 14,
+        "fields": {
+            "name": "Flowering Plants",
+            "parent": 8,
+            "slug": "flowering-plants",
+            "lft": 19,
+            "rght": 20,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 15,
+        "fields": {
+            "name": "Shade Plants",
+            "parent": 8,
+            "slug": "shade-plants",
+            "lft": 21,
+            "rght": 22,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 16,
+        "fields": {
+            "name": "Patio Plants",
+            "parent": 9,
+            "slug": "patio-plants",
+            "lft": 13,
+            "rght": 14,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 17,
+        "fields": {
+            "name": "Climbing Plants",
+            "parent": 9,
+            "slug": "climbing-plants",
+            "lft": 11,
+            "rght": 12,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 18,
+        "fields": {
+            "name": "Indoor Bonsai",
+            "parent": 10,
+            "slug": "indoor-bonsai",
+            "lft": 5,
+            "rght": 6,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 19,
+        "fields": {
+            "name": "Outdoor Bonsai",
+            "parent": 10,
+            "slug": "outdoor-bonsai",
+            "lft": 7,
+            "rght": 8,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 20,
+        "fields": {
+            "name": "Ficus Ginseng",
+            "parent": 10,
+            "slug": "ficus-ginseng",
+            "lft": 3,
+            "rght": 4,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 21,
+        "fields": {
+            "name": "Air Purifying Plants",
+            "parent": 12,
+            "slug": "air-purifying-plants",
+            "lft": 25,
+            "rght": 26,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 22,
+        "fields": {
+            "name": "Semi Hydro Plants",
+            "parent": 12,
+            "slug": "semi-hydro-plants",
+            "lft": 27,
+            "rght": 28,
+            "tree_id": 2,
+            "level": 2
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 23,
+        "fields": {
+            "name": "Pots",
+            "parent": 6,
+            "slug": "pots",
+            "lft": 4,
+            "rght": 5,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+    {
+        "model": "shop.category",
+        "pk": 24,
+        "fields": {
+            "name": "Plant Care",
+            "parent": 6,
+            "slug": "plant-care",
+            "lft": 2,
+            "rght": 3,
+            "tree_id": 1,
+            "level": 1
+        }
+    },
+
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Sansevieria Ceramic superba",
+            "slug": "Sansevieria-Ceramic-superba",
+            "image": "products/2014/08/05/Sansevieria-Ceramic-superba.jpg",
+            "description": "The Sansevieria Superba is almost indestructible. The Sansevieria is also an air-purifying plant and improves the humidity and ensures a healthy atmosphere for body and soul.",
+            "price": 92,
+            "available": true,
+            "created": "2014-08-05T09:36:19.536Z",
+            "updated": "2014-08-05T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Calathea Magicstar - pot 17 cm",
+            "slug": "Calathea-Magicstar-pot-17-cm",
+            "image": "products/2011/08/09/Calathea-Magicstar-pot-17-cm.jpg",
+            "description": "The living plant, decorative and very air-purifying! The Calathea is a very decorative plant and has a wide variety of different colors and shapes of the leaves.",
+            "price": 34,
+            "available": true,
+            "created": "2011-08-09T09:36:19.536Z",
+            "updated": "2011-08-09T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Calathea Compactstar - pot 17 cm",
+            "slug": "Calathea-Compactstar-pot-17-cm",
+            "image": "products/2018/04/13/Calathea-Compactstar-pot-17-cm.jpg",
+            "description": "The living plant, decorative and very air-purifying! The Calathea is a very decorative plant and has a wide variety of different colors and shapes of the leaves.",
+            "price": 82,
+            "available": true,
+            "created": "2018-04-13T09:36:19.536Z",
+            "updated": "2018-04-13T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Calathea Picturata - pot 17 cm",
+            "slug": "Calathea-Picturata-pot-17-cm",
+            "image": "products/2015/07/18/Calathea-Picturata-pot-17-cm.jpg",
+            "description": "The living plant, decorative and very air-purifying! The Calathea is a very decorative plant and has a wide variety of different colors and shapes of the leaves.",
+            "price": 40,
+            "available": true,
+            "created": "2015-07-18T09:36:19.536Z",
+            "updated": "2015-07-18T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Calathea Leopardina - pot 17 cm",
+            "slug": "Calathea-Leopardina-pot-17-cm",
+            "image": "products/2016/10/01/Calathea-Leopardina-pot-17-cm.jpg",
+            "description": "The living plant, decorative and very air-purifying! The Calathea is a very decorative plant and has a wide variety of different colors and shapes of the leaves.",
+            "price": 99,
+            "available": true,
+            "created": "2016-10-01T09:36:19.536Z",
+            "updated": "2016-10-01T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 21,
+            "name": "Calathea Elgergrass - pot 17 cm",
+            "slug": "Calathea-Elgergrass-pot-17-cm",
+            "image": "products/2020/11/17/Calathea-Elgergrass-pot-17-cm.jpg",
+            "description": "The living plant, decorative and very air-purifying! The Calathea is a very decorative plant and has a wide variety of different colors and shapes of the leaves.",
+            "price": 28,
+            "available": true,
+            "created": "2020-11-17T09:36:19.536Z",
+            "updated": "2020-11-17T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Ficus Microcarpa",
+            "slug": "Ficus-Microcarpa",
+            "image": "products/2016/10/15/Ficus-Microcarpa.jpg",
+            "description": "Ficus microcarpa Ginseng. A fantastic beautiful plant. Whimsical and yet graceful. For years of pleasure for the home or office.",
+            "price": 36,
+            "available": true,
+            "created": "2016-10-15T09:36:19.536Z",
+            "updated": "2016-10-15T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus ginseng kokedama on dish",
+            "slug": "Bonsai-Ficus-ginseng-kokedama-on-dish",
+            "image": "products/2018/12/19/Bonsai-Ficus-ginseng-kokedama-on-dish.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 31,
+            "available": true,
+            "created": "2018-12-19T09:36:19.536Z",
+            "updated": "2018-12-19T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus Ginseng in 12 plastic pots",
+            "slug": "Bonsai-Ficus-Ginseng-in-12-plastic-pots",
+            "image": "products/2010/11/08/Bonsai-Ficus-Ginseng-in-12-plastic-pots.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 87,
+            "available": true,
+            "created": "2010-11-08T09:36:19.536Z",
+            "updated": "2010-11-08T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus Ginseng in 24 plastic pot",
+            "slug": "Bonsai-Ficus-Ginseng-in-24-plastic-pot",
+            "image": "products/2020/03/18/Bonsai-Ficus-Ginseng-in-24-plastic-pot.jpg",
+            "description": "Ginseng is the Chinese name of ginger with special medicinal properties are ascribed. Besides his artistic look Ficus Ginseng has a positive impact on the environment and health.",
+            "price": 64,
+            "available": true,
+            "created": "2020-03-18T09:36:19.536Z",
+            "updated": "2020-03-18T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus Ginseng in 22 plastic jar",
+            "slug": "Bonsai-Ficus-Ginseng-in-22-plastic-jar",
+            "image": "products/2013/12/29/Bonsai-Ficus-Ginseng-in-22-plastic-jar.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health. PRICE is per PIECE",
+            "price": 98,
+            "available": true,
+            "created": "2013-12-29T09:36:19.536Z",
+            "updated": "2013-12-29T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus Ginseng 9 cm",
+            "slug": "Bonsai-Ficus-Ginseng-9-cm",
+            "image": "products/2019/02/01/Bonsai-Ficus-Ginseng-9-cm.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 54,
+            "available": true,
+            "created": "2019-02-01T09:36:19.536Z",
+            "updated": "2019-02-01T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus ginseng in a relief pot 13 cm",
+            "slug": "Bonsai-Ficus-ginseng-in-a-relief-pot-13-cm",
+            "image": "products/2012/03/07/Bonsai-Ficus-ginseng-in-a-relief-pot-13-cm.jpg",
+            "description": "Ginseng is the Chinese name of ginger with special medicinal properties are ascribed. Besides his artistic look Ficus Ginseng has a positive impact on the environment and health.",
+            "price": 18,
+            "available": true,
+            "created": "2012-03-07T09:36:19.536Z",
+            "updated": "2012-03-07T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus ginseng S-shape in anthracite plasticpot 36cm",
+            "slug": "Bonsai-Ficus-ginseng-Sshape-in-anthracite-plasticpot-36cm",
+            "image": "products/2018/02/22/Bonsai-Ficus-ginseng-Sshape-in-anthracite-plasticpot-36cm.jpg",
+            "description": "Ginseng is the Chinese name of ginger with special medicinal properties are ascribed. The ficus ginseng is happy and light spot, but not in direct sunlight!",
+            "price": 68,
+            "available": true,
+            "created": "2018-02-22T09:36:19.536Z",
+            "updated": "2018-02-22T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 20,
+            "name": "Bonsai Ficus ginseng in concrete pot with rope",
+            "slug": "Bonsai-Ficus-ginseng-in-concrete-pot-with-rope",
+            "image": "products/2010/05/29/Bonsai-Ficus-ginseng-in-concrete-pot-with-rope.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 77,
+            "available": true,
+            "created": "2010-05-29T09:36:19.536Z",
+            "updated": "2010-05-29T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 19,
+            "name": "Bonsai pinus - outdoor",
+            "slug": "Bonsai-pinus-outdoor",
+            "image": "products/2010/08/20/Bonsai-pinus-outdoor.jpg",
+            "description": "This very nice set of 4 different Pinus bonsai is now also for sale at FloraStore. Note: PRICE IS PER PIECE !! The mixed only for sale per 4! This is a mixed product where it is possible that some types are delivered double.",
+            "price": 90,
+            "available": true,
+            "created": "2010-08-20T09:36:19.536Z",
+            "updated": "2010-08-20T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Ficus ginseng kokedama on dish",
+            "slug": "Bonsai-Ficus-ginseng-kokedama-on-dish",
+            "image": "products/2010/10/06/Bonsai-Ficus-ginseng-kokedama-on-dish.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 12,
+            "available": true,
+            "created": "2010-10-06T09:36:19.536Z",
+            "updated": "2010-10-06T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Zelkova pot 40 cm",
+            "slug": "Bonsai-Zelkova-pot-40-cm",
+            "image": "products/2011/03/27/Bonsai-Zelkova-pot-40-cm.jpg",
+            "description": "Bonsai, literally translated as \"tree in pot\" is grown and shaped as an image carrier of the beauty of nature. This sturdy bonsai carmona should not be missing from your collection.",
+            "price": 57,
+            "available": true,
+            "created": "2011-03-27T09:36:19.536Z",
+            "updated": "2011-03-27T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Zelkova pot 35 cm",
+            "slug": "Bonsai-Zelkova-pot-35-cm",
+            "image": "products/2012/05/14/Bonsai-Zelkova-pot-35-cm.jpg",
+            "description": "Bonsai, literally translated as \"tree in pot\", is cultivated and shaped as an image carrier of the beauty of nature.",
+            "price": 52,
+            "available": true,
+            "created": "2012-05-14T09:36:19.536Z",
+            "updated": "2012-05-14T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Carmona, extra quality",
+            "slug": "Bonsai-Carmona-extra-quality",
+            "image": "products/2011/11/05/Bonsai-Carmona-extra-quality.jpg",
+            "description": "Bonsai, literally translated as \"tree in pot\", is cultivated and shaped as an image carrier of the beauty of nature. This sturdy bonsai carmona may not be missing from your collection.",
+            "price": 10,
+            "available": true,
+            "created": "2011-11-05T09:36:19.536Z",
+            "updated": "2011-11-05T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Lucky bamboo Embossed pot 11 cm",
+            "slug": "Lucky-bamboo-Embossed-pot-11-cm",
+            "image": "products/2017/06/22/Lucky-bamboo-Embossed-pot-11-cm.jpg",
+            "description": "In China Lucky Bamboo has a deep spiritual meaning. Double Luck Bamboo is seen as a bringer of happiness, and is often given as a gift. According to the Feng Shui doctrine, positive energy in the living environment is released by Lucky Bamboo.",
+            "price": 99,
+            "available": true,
+            "created": "2017-06-22T09:36:19.536Z",
+            "updated": "2017-06-22T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Ficus Ginseng in 12 plastic pots",
+            "slug": "Bonsai-Ficus-Ginseng-in-12-plastic-pots",
+            "image": "products/2019/06/16/Bonsai-Ficus-Ginseng-in-12-plastic-pots.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 90,
+            "available": true,
+            "created": "2019-06-16T09:36:19.536Z",
+            "updated": "2019-06-16T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Ficus Ginseng in 24 plastic pot",
+            "slug": "Bonsai-Ficus-Ginseng-in-24-plastic-pot",
+            "image": "products/2020/04/07/Bonsai-Ficus-Ginseng-in-24-plastic-pot.jpg",
+            "description": "Ginseng is the Chinese name of ginger with special medicinal properties are ascribed. Besides his artistic look Ficus Ginseng has a positive impact on the environment and health.",
+            "price": 28,
+            "available": true,
+            "created": "2020-04-07T09:36:19.536Z",
+            "updated": "2020-04-07T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Ficus Ginseng in 22 plastic jar",
+            "slug": "Bonsai-Ficus-Ginseng-in-22-plastic-jar",
+            "image": "products/2014/09/02/Bonsai-Ficus-Ginseng-in-22-plastic-jar.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health. PRICE is per PIECE",
+            "price": 72,
+            "available": true,
+            "created": "2014-09-02T09:36:19.536Z",
+            "updated": "2014-09-02T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 18,
+            "name": "Bonsai Ficus Ginseng 9 cm",
+            "slug": "Bonsai-Ficus-Ginseng-9-cm",
+            "image": "products/2011/01/05/Bonsai-Ficus-Ginseng-9-cm.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 83,
+            "available": true,
+            "created": "2011-01-05T09:36:19.536Z",
+            "updated": "2011-01-05T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 17,
+            "name": "Clematis Climbing plants - large-flowered - flowering July-September",
+            "slug": "Clematis-Climbing-plants-largeflowered-flowering-JulySeptember",
+            "image": "products/2016/12/21/Clematis-Climbing-plants-largeflowered-flowering-JulySeptember.jpg",
+            "description": "from February 2020, FloraStore has a large assortment of beautiful climbing plants for: garden, terrace and balcony. Evergreen such as the hedera, flowering climbing plants, fast growing and hardy. Climbing plants can be used for: pergola, fence or wall.",
+            "price": 53,
+            "available": true,
+            "created": "2016-12-21T09:36:19.536Z",
+            "updated": "2016-12-21T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 17,
+            "name": "Clematis Climbing plants - large-flowered",
+            "slug": "Clematis-Climbing-plants-largeflowered",
+            "image": "products/2016/03/14/Clematis-Climbing-plants-largeflowered.jpg",
+            "description": "from February 2020, FloraStore has a large assortment of beautiful climbing plants for: garden, terrace and balcony. Evergreen such as the hedera, flowering climbing plants, fast growing and hardy. Climbing plants can be used for: pergola, fence or wall.",
+            "price": 50,
+            "available": true,
+            "created": "2016-03-14T09:36:19.536Z",
+            "updated": "2016-03-14T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 17,
+            "name": "Clematis Climbing plants - large-flowered",
+            "slug": "Clematis-Climbing-plants-largeflowered",
+            "image": "products/2013/08/08/Clematis-Climbing-plants-largeflowered.jpg",
+            "description": "from February 2020, FloraStore has a large assortment of beautiful climbing plants for: garden, terrace and balcony. Evergreen such as the hedera, flowering climbing plants, fast growing and hardy. Climbing plants can be used for: pergola, fence or wall.",
+            "price": 77,
+            "available": true,
+            "created": "2013-08-08T09:36:19.536Z",
+            "updated": "2013-08-08T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 17,
+            "name": "Clematis Climbing plants - large-flowered",
+            "slug": "Clematis-Climbing-plants-largeflowered",
+            "image": "products/2016/03/19/Clematis-Climbing-plants-largeflowered.jpg",
+            "description": "from February 2020, FloraStore has a large assortment of beautiful climbing plants for: garden, terrace and balcony. Evergreen such as the hedera, flowering climbing plants, fast growing and hardy. Climbing plants can be used for: pergola, fence or wall.",
+            "price": 65,
+            "available": true,
+            "created": "2016-03-19T09:36:19.536Z",
+            "updated": "2016-03-19T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 17,
+            "name": "Clematis Climbing plants - evergreen",
+            "slug": "Clematis-Climbing-plants-evergreen",
+            "image": "products/2017/06/08/Clematis-Climbing-plants-evergreen.jpg",
+            "description": "from February 2020, FloraStore has a large assortment of beautiful climbing plants for: garden, terrace and balcony. Evergreen such as the hedera, flowering climbing plants, fast growing and hardy. Climbing plants can be used for: pergola, fence or wall.",
+            "price": 12,
+            "available": true,
+            "created": "2017-06-08T09:36:19.536Z",
+            "updated": "2017-06-08T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 16,
+            "name": "Ornithogalum Thyrsoides Snowflake",
+            "slug": "Ornithogalum-Thyrsoides-Snowflake",
+            "image": "products/2015/02/24/Ornithogalum-Thyrsoides-Snowflake.jpg",
+            "description": "This beautiful Ornithogalum with its beautiful white bowl-shaped flowers are ideal for terrace or balcony. When the plant starts to bloom, the leaves die. It is therefore best to plant this plant in combination with perennials.",
+            "price": 40,
+            "available": true,
+            "created": "2015-02-24T09:36:19.536Z",
+            "updated": "2015-02-24T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 16,
+            "name": "Zantedeschia calla in bowl 22 cm",
+            "slug": "Zantedeschia-calla-in-bowl-22-cm",
+            "image": "products/2016/08/01/Zantedeschia-calla-in-bowl-22-cm.jpg",
+            "description": "The Calla is perfect as a houseplant, but can also function well as a patio plant in the summer. On the terrace, preferably in the shade, but after getting used to the outside conditions, the Calla can also tolerate the sun.",
+            "price": 53,
+            "available": true,
+            "created": "2016-08-01T09:36:19.536Z",
+            "updated": "2016-08-01T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 16,
+            "name": "Kalancho\u00eb Grandiva",
+            "slug": "Kalancho\u00eb-Grandiva",
+            "image": "products/2012/08/27/Kalancho\u00eb-Grandiva.jpg",
+            "description": "You will hold on to this Kalanchoe! This kalanchoe from madagascar loves kitchen and garden table. With its double flowers, it is available in many colors. Note: a faded kalanchoe often goes outside for a 2nd life.",
+            "price": 33,
+            "available": true,
+            "created": "2012-08-27T09:36:19.536Z",
+            "updated": "2012-08-27T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Calathea Crocata in basket",
+            "slug": "Calathea-Crocata-in-basket",
+            "image": "products/2010/08/07/Calathea-Crocata-in-basket.jpg",
+            "description": "The Calathea Crocata is a top product, delivered directly by the world's largest Tassmania producer and guarantees top quality! fun for halloween!",
+            "price": 27,
+            "available": true,
+            "created": "2010-08-07T09:36:19.536Z",
+            "updated": "2010-08-07T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Schefflera Amate, ornamental pot + water meter L",
+            "slug": "Schefflera-Amate-ornamental-pot-water-meter-L",
+            "image": "products/2017/08/22/Schefflera-Amate-ornamental-pot-water-meter-L.jpg",
+            "description": "This beautiful and complete Schefflera Amate in decorative pot + water meter deserves a light to half shade in your room or office. However, avoid too much direct sunlight.",
+            "price": 29,
+            "available": true,
+            "created": "2017-08-22T09:36:19.536Z",
+            "updated": "2017-08-22T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Schefflera Amate, ornamental pot + water meter M",
+            "slug": "Schefflera-Amate-ornamental-pot-water-meter-M",
+            "image": "products/2018/04/11/Schefflera-Amate-ornamental-pot-water-meter-M.jpg",
+            "description": "This beautiful and complete Schefflera Amate in decorative pot + water meter deserves a light to half shade in your room or office. However, avoid too much direct sunlight.",
+            "price": 28,
+            "available": true,
+            "created": "2018-04-11T09:36:19.536Z",
+            "updated": "2018-04-11T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Bonsai Ficus ginseng kokedama on dish",
+            "slug": "Bonsai-Ficus-ginseng-kokedama-on-dish",
+            "image": "products/2012/05/22/Bonsai-Ficus-ginseng-kokedama-on-dish.jpg",
+            "description": "Ginseng is the Chinese name of ginger root to which special medicinal properties are attributed. In addition to its artistic appearance, the Ficus Ginseng has a positive influence on the environment and health.",
+            "price": 37,
+            "available": true,
+            "created": "2012-05-22T09:36:19.536Z",
+            "updated": "2012-05-22T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Sansevieria Cylindrica kirkii Friends in ceramics",
+            "slug": "Sansevieria-Cylindrica-kirkii-Friends-in-ceramics",
+            "image": "products/2019/06/13/Sansevieria-Cylindrica-kirkii-Friends-in-ceramics.jpg",
+            "description": "A very decorative palmate Sansevieria kirkii friends is a very robust and strong plant. He is very decorative and fits in almost any interior, traditional or modern! Sit in a nice ceramic pot.",
+            "price": 28,
+            "available": true,
+            "created": "2019-06-13T09:36:19.536Z",
+            "updated": "2019-06-13T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Sansevieria Skyline with ceramic Cape Town",
+            "slug": "Sansevieria-Skyline-with-ceramic-Cape-Town",
+            "image": "products/2013/06/17/Sansevieria-Skyline-with-ceramic-Cape-Town.jpg",
+            "description": "A very decorative palmate Sansevieria skyline is a very robust and strong plant. He is very decorative and fits in almost any interior, traditional or modern! Sit in a nice ceramic pot.",
+            "price": 39,
+            "available": true,
+            "created": "2013-06-17T09:36:19.536Z",
+            "updated": "2013-06-17T09:36:19.536Z"
+        }
+    },
+    {
+        "model": "shop.product",
+        "fields": {
+            "category": 11,
+            "name": "Yucca branched, ornamental pot + water meter M",
+            "slug": "Yucca-branched-ornamental-pot-water-meter-M",
+            "image": "products/2012/12/21/Yucca-branched-ornamental-pot-water-meter-M.jpg",
+            "description": "This beautiful and complete Yucca in decorative pot + water meter deserves a light to half shade in your room or office. However, avoid direct sunlight.",
+            "price": 18,
+            "available": true,
+            "created": "2012-12-21T09:36:19.536Z",
+            "updated": "2012-12-21T09:36:19.536Z"
+        }
+    }
+
+]

@@ -1,0 +1,249 @@
+[
+{
+    "model": "shop.category",
+    "pk": 6,
+    "fields": {
+        "name": "Accessories",
+        "parent": null,
+        "slug": "accessories",
+        "lft": 1,
+        "rght": 6,
+        "tree_id": 1,
+        "level": 0
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 7,
+    "fields": {
+        "name": "Plants",
+        "parent": null,
+        "slug": "plants",
+        "lft": 1,
+        "rght": 32,
+        "tree_id": 2,
+        "level": 0
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 8,
+    "fields": {
+        "name": "House Plants",
+        "parent": 7,
+        "slug": "house-plants",
+        "lft": 16,
+        "rght": 23,
+        "tree_id": 2,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 9,
+    "fields": {
+        "name": "Garden Plants",
+        "parent": 7,
+        "slug": "garden-plants",
+        "lft": 10,
+        "rght": 15,
+        "tree_id": 2,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 10,
+    "fields": {
+        "name": "Bonsai",
+        "parent": 7,
+        "slug": "bonsai",
+        "lft": 2,
+        "rght": 9,
+        "tree_id": 2,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 11,
+    "fields": {
+        "name": "Plants in Pot",
+        "parent": 7,
+        "slug": "plants-pot",
+        "lft": 30,
+        "rght": 31,
+        "tree_id": 2,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 12,
+    "fields": {
+        "name": "Office Plants",
+        "parent": 7,
+        "slug": "office-plants",
+        "lft": 24,
+        "rght": 29,
+        "tree_id": 2,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 13,
+    "fields": {
+        "name": "Bulbs",
+        "parent": 8,
+        "slug": "bulbs",
+        "lft": 17,
+        "rght": 18,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 14,
+    "fields": {
+        "name": "Flowering Plants",
+        "parent": 8,
+        "slug": "flowering-plants",
+        "lft": 19,
+        "rght": 20,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 15,
+    "fields": {
+        "name": "Shade Plants",
+        "parent": 8,
+        "slug": "shade-plants",
+        "lft": 21,
+        "rght": 22,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 16,
+    "fields": {
+        "name": "Patio Plants",
+        "parent": 9,
+        "slug": "patio-plants",
+        "lft": 13,
+        "rght": 14,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 17,
+    "fields": {
+        "name": "Climbing Plants",
+        "parent": 9,
+        "slug": "climbing-plants",
+        "lft": 11,
+        "rght": 12,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 18,
+    "fields": {
+        "name": "Indoor Bonsai",
+        "parent": 10,
+        "slug": "indoor-bonsai",
+        "lft": 5,
+        "rght": 6,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 19,
+    "fields": {
+        "name": "Outdoor Bonsai",
+        "parent": 10,
+        "slug": "outdoor-bonsai",
+        "lft": 7,
+        "rght": 8,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 20,
+    "fields": {
+        "name": "Ficus Ginseng",
+        "parent": 10,
+        "slug": "ficus-ginseng",
+        "lft": 3,
+        "rght": 4,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 21,
+    "fields": {
+        "name": "Air Purifying Plants",
+        "parent": 12,
+        "slug": "air-purifying-plants",
+        "lft": 25,
+        "rght": 26,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 22,
+    "fields": {
+        "name": "Semi Hydro Plants",
+        "parent": 12,
+        "slug": "semi-hydro-plants",
+        "lft": 27,
+        "rght": 28,
+        "tree_id": 2,
+        "level": 2
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 23,
+    "fields": {
+        "name": "Pots",
+        "parent": 6,
+        "slug": "pots",
+        "lft": 4,
+        "rght": 5,
+        "tree_id": 1,
+        "level": 1
+    }
+},
+{
+    "model": "shop.category",
+    "pk": 24,
+    "fields": {
+        "name": "Plant Care",
+        "parent": 6,
+        "slug": "plant-care",
+        "lft": 2,
+        "rght": 3,
+        "tree_id": 1,
+        "level": 1
+    }
+}
+]
