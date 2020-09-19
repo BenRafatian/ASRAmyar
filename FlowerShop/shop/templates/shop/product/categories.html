@@ -30,7 +30,7 @@
     <h2>
         <a href="{% url 'shop:products' %}">All Products</a> /
         {% for parent in parents %}
-        <a href="{{ product.parent.get_absolute_url }}"> {{parent.name}} </a> /
+        <a href="{{ parent.get_absolute_url }}"> {{parent.name}} </a> /
         {% endfor %}
         {{ product.name }}
     </h2>
