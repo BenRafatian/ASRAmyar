@@ -8,22 +8,36 @@
 {% block content %}
     <h1>Checkout</h1>
 
+    
     <div class="order-info">
         <h3>Your Order</h3>
         <ul>
             {% for item in cart %}
-                <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>${{ item.total_price }}</span>
-                </li>
+            <li>
+                {{ item.quantity }}x {{ item.product.name }}
+                <span>${{ item.total_price }}</span>
+            </li>
             {% endfor %}
         </ul>
         <p>Total: ${{ cart.get_total_price }}</p>
     </div>
-
-    <form method="POST" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Place Order"></p>
-        {% csrf_token %}
-    </form>          
+    <div class="row">
+        <div class="col col-6">
+            <form method="POST" class="order-form">
+                {{ form.as_p }}
+                <p><input type="submit" value="Place Order"></p>
+                {% csrf_token %}
+            </form>
+        </div>
+        
+        <div class="col col-6 order-info">
+            <ul>
+                <li>{{ form.customer.user.username }}</li>
+                <li>{{ form.address.address_detail }}</li>
+                <li>{{ form.address.phone }}</li>
+                <li>{{ form.address.postal_code }}</li>
+                <li>{{ form.address.city }}</li>
+            </ul>
+        </div>
+    </div>
 {% endblock  %}

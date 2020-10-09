@@ -3,12 +3,18 @@ from .models import OrderItem
 from .forms import OrderCreateForm
 from .tasks import order_created
 from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
+@login_required
 def order_create(request):
     cart = Cart(request)
+    
     if request.method == 'POST':
-        form = OrderCreateForm(request.POST)
+        customer = request.user.profile
+        address = request.user.profile.address
+        form = OrderCreateForm(customer, address, request.POST, request.FILES)
         if form.is_valid():
             order = form.save()
             for item in cart:
@@ -23,7 +29,12 @@ def order_create(request):
                           'orders/order/created.html',
                           {'order': order})
     else:
-        form = OrderCreateForm()
+        if request.user.profile.address:
+            customer = request.user.profile
+            address = request.user.profile.address
+
+            form = OrderCreateForm(customer, address)
+
     return render(request,
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
