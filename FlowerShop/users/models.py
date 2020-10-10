@@ -25,7 +25,6 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
-
 class Address(models.Model):
 
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)

@@ -42,7 +42,6 @@ def product_detail_or_list_by_category(request, hierarchy=None):
 
     try:
         product = Category.objects.get(parent=parent, slug=category_slug[-1])
-        print('11111111111111111111111111')
         # r = Recommender()
         # recommended_products = r.suggest_product_for([product], 4)
     except:

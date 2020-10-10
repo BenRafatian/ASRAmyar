@@ -5,7 +5,8 @@ from users.models import Profile, Address
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(Profile, verbose_name="customer", on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        Profile, verbose_name="customer", on_delete=models.CASCADE)
 
     # total_products_price = models.IntegerField()
     # discount = models.IntegerField()
@@ -17,7 +18,6 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
-
 
     class Meta:
         ordering = ('-created',)
