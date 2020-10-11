@@ -47,7 +47,6 @@
                     {% if user.is_superuser %}
                     <a class="dropdown-item" href="/admin">Admin Page</a>
                     {% endif %}
-                    <a class="dropdown-item" href="{% url 'users:dashboard' %}">Dashboard</a>
                     <a class="dropdown-item" href="{% url 'users:profile' %}">Profile</a>
                     <a class="dropdown-item" href="{% url 'users:logout' %}">Logout</a>
                 </div>

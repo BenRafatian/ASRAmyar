@@ -21,7 +21,7 @@ def register(request):
 
 
 @login_required
-def profile(request):
+def profile_update(request):
 
     user = request.user
 
@@ -58,7 +58,7 @@ def profile(request):
         'pass_form': pass_form
     }
 
-    return render(request=request, template_name='users/profile.html', context=context)
+    return render(request=request, template_name='users/update.html', context=context)
 
 
 @login_required

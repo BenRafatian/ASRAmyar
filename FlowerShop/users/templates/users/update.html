@@ -1,33 +1,106 @@
-{% extends "shop/base.html" %}
-
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends "shop/base.html" %} {% load crispy_forms_tags %} {% block content %}
 <div id="sidebar">
     <ul>
-        <li><a href="{% url 'users:profile' %}" class="btn btn-secondary">Profile Information</a></li>
-        <li><a href="#" class="btn btn-secondary">My Orders</a></li>
-        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
-        <li><a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a></li>
+        <li>
+            <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Information</a
+            >
+            </li>
+            <li><a href="#" class="btn btn-secondary">My Orders</a></li>
+            <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+            <li>
+            <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
     </ul>
 </div>
 <div class="content-section">
-    <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
+    <div class="media m-1">
+            <img
+            class="rounded-circle account-img"
+            src="{{ user.profile.image.url }}"
+            />
+            <div class="media-body">
             <h2 class="account-heading">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
         </div>
     </div>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Info</legend>
-            {{ u_form|crispy }}
-            {{ p_form|crispy }}
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
+    <br>
+    <div class="row">
+        <div class="col col-2"></div>
+        <div class="col col-5">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>E-mail</b>: {{ user.email }}</li>
+                <li class="list-group-item"><b>First Name</b>: {{ user.first_name }}</li>
+                <li class="list-group-item"><b>Last Name</b>: {{ user.last_name }}</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangeInformation">
+                Change Information
+            </button>
+        </div>
+        <div class="col col-5">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Password</b>: *****</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangePassword">
+                Change Password
+            </button>
+        </div>
+        <!-- Change Information Modal -->
+        <div class="modal fade" id="ChangeInformation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="order-form" method="post">
+                            <p>{{ user_form|crispy }}</p>
+                            <p><input type="submit" value="Change Info" /></p>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
             </div>
-        </fieldset>
-    </form>
-</div>  
+        </div>
+        <!-- Change Password Modal -->
+        <div class="modal fade" id="ChangePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="order-form" method="post">
+                            <p>{{ pass_form|crispy }}</p>
+                            <p><input type="submit" value="Change Password" /></p>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- <form method="POST" class="order-form">
+          <div class="col">
+            <p>{{ user_form|crispy }}</p>
+          </div>
+    
+          <p><input type="submit" value="Change Info" /></p>
+          {% csrf_token %}
+        </form>
+    
+        <form method="POST" class="order-form">
+          <div class="col">
+            <p>{{ pass_form|crispy }}</p>
+          </div>
+          <p><input type="submit" value="Change Password" /></p>
+          {% csrf_token %}
+        </form> -->
+</div>
 {% endblock content %}
