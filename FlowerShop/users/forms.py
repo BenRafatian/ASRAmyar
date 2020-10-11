@@ -17,31 +17,15 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class UserChangeForm(forms.ModelForm):
+class UserChangeForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['email', ]
+        fields = ['email', 'first_name', 'last_name']
 
-    def __init__(self, username, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(UserChangeForm, self).__init__(*args, **kwargs)
-        self.username = username
-        for i in kwargs:
-            print(i)
-
-    def save(self, commit=True):
-        instance = get_object_or_404(User, username=self.username)
-        # self.email =
-        print("++++++++++++++++++++++++++++++++++++++++")
-        print(instance)
-        if not instance.pk:
-            instance.username = self.username
-
-        if commit:
-            # print(instance.username)
-            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-            instance.save(force_update=True)
-        return instance
+        self.fields.pop('password')
 
 
 class ProfileUpdateForm(forms.ModelForm):

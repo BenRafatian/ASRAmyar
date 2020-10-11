@@ -2,11 +2,10 @@ from django import forms
 from .models import Order, Profile, Address
 
 
-
 class OrderCreateForm(forms.ModelForm):
 
-    def __init__(self, customer, address, *args , **kwargs):
-        super(OrderCreateForm, self).__init__(*args,**kwargs)
+    def __init__(self, customer, address, *args, **kwargs):
+        super(OrderCreateForm, self).__init__(*args, **kwargs)
         self.customer = customer
         self.address = address
 
@@ -22,4 +21,3 @@ class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['id']
-

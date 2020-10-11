@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, ProfileUpdateForm, UserChangeForm
+from .forms import UserRegisterForm, UserChangeForm, ProfileUpdateForm
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -25,32 +26,30 @@ def profile(request):
     user = request.user
 
     if request.method == 'POST':
-        user_form = UserChangeForm(user, request.POST)
-        print(user_form)
-        print(request.POST)
-        print(user)
-        print("------------------------------------------")
-        pass_form = PasswordChangeForm(user, request.POST)
+        data = request.POST
+        print(data)
+        user_form = UserChangeForm(data=data, instance=user)
+        pass_form = PasswordChangeForm(data=data, user=user)
         profile_form = ProfileUpdateForm(request.POST,
                                          request.FILES,
                                          instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, f'Your account has been updated!')
-            print("''''''''''''''''''''''''''''''''''''''''''")
+
             return redirect('users:profile')
 
     else:
         email = request.user.email
         first_name = request.user.first_name
         last_name = request.user.last_name
-        user_form = UserChangeForm(user, initial={
+        user_form = UserChangeForm(instance=user, initial={
             'email': email,
             'first_name': first_name,
             'last_name': last_name
         })
-        pass_form = PasswordChangeForm(user)
+        pass_form = PasswordChangeForm(user=user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
@@ -59,7 +58,7 @@ def profile(request):
         'pass_form': pass_form
     }
 
-    return render(request, 'users/profile.html', context)
+    return render(request=request, template_name='users/profile.html', context=context)
 
 
 @login_required
