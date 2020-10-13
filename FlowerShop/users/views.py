@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect
+from django.utils import timezone
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserChangeForm, ProfileUpdateForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
+from users.models import Profile
+from django.views.generic import DetailView
+from orders.models import Order
 
 
 def register(request):
@@ -24,7 +28,7 @@ def register(request):
 def profile_update(request):
 
     user = request.user
-
+    # TODO: if request.method=="POST" and "password_change_button_name" in request.POST --> user password form and same for informatinon form
     if request.method == 'POST':
         data = request.POST
         print(data)
@@ -38,7 +42,7 @@ def profile_update(request):
             profile_form.save()
             messages.success(request, f'Your account has been updated!')
 
-            return redirect('users:profile')
+            return redirect('users:profile_update')
 
     else:
         email = request.user.email
@@ -61,6 +65,16 @@ def profile_update(request):
     return render(request=request, template_name='users/update.html', context=context)
 
 
-@login_required
-def dashboard(request):
-    return render(request, 'users/dashboard.html')
+class ProfileView(DetailView):
+    model = User
+    context_object_name = 'profile'
+    template_name = "users/profile.html"
+
+    def get_object(self):
+        return get_object_or_404(User, username=self.request.user.username)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['last_orders'] = Order.objects.filter(
+            customer=self.request.user.profile).order_by('-created')[:3]
+        return context

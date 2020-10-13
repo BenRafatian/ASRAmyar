@@ -3,12 +3,17 @@
     <ul>
         <li>
             <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Overview</a
+            >
+        </li>
+        <li>
+            <a href="{% url 'users:profile_update' %}" class="btn btn-secondary"
                 >Profile Information</a
             >
-            </li>
-            <li><a href="#" class="btn btn-secondary">My Orders</a></li>
-            <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
-            <li>
+        </li>
+        <li><a href="#" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+        <li>
             <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
         </li>
     </ul>
@@ -33,7 +38,7 @@
                 <li class="list-group-item"><b>First Name</b>: {{ user.first_name }}</li>
                 <li class="list-group-item"><b>Last Name</b>: {{ user.last_name }}</li>
             </ul>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangeInformation">
+            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangeInformation" name="info">
                 Change Information
             </button>
         </div>
@@ -41,7 +46,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><b>Password</b>: *****</li>
             </ul>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangePassword">
+            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangePassword" name="password">
                 Change Password
             </button>
         </div>

@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+echo "activating"
+source venv/bin/activate
+cd FlowerShop
+python manage.py runserver

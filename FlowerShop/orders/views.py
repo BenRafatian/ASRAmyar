@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import OrderItem
+from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from .tasks import order_created
 from cart.cart import Cart
@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 @login_required
 def order_create(request):
     cart = Cart(request)
-    
+
     if request.method == 'POST':
         customer = request.user.profile
         address = request.user.profile.address

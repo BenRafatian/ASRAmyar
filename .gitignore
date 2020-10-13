@@ -3,3 +3,4 @@ env
 .vscode
 profile_pics
 /*.jpeg
+*.sh
