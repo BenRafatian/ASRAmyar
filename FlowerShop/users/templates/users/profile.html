@@ -51,9 +51,13 @@
 </div>
 <div class="content-section">
     <div class="col col-4">
-        {% for order_item in last_orders %}
-            <p>{{ order_item.items}}</p>
-        {% endfor %}
+        {% if last_orders %}
+            {% for order_item in last_orders %}
+                <p>{{ order_item.items}}</p>
+            {% endfor %}
+        {% else %}
+            You have not bought anything yet
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

@@ -6,7 +6,7 @@ from django.contrib.auth.forms import (
     UserChangeForm,
     PasswordChangeForm
 )
-from .models import Profile
+from .models import Profile, Address
 
 
 class UserRegisterForm(UserCreationForm):
@@ -33,3 +33,23 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+class AddressCreateForm(forms.ModelForm):
+
+    def __init__(self, profile, *args, **kwargs):
+        super(AddressCreateForm, self).__init__(*args, **kwargs)
+        self.profile = profile
+
+    def save(self, commit=True):
+        instance = super(AddressCreateForm, self).save(commit=False)
+        if not instance.pk:
+            instance.profile = self.profile
+        if commit:
+            instance.save()
+        return instance
+
+    class Meta:
+        model = Address
+        fields = ['id', 'address_detail', 'state',
+                  'postal_code', 'city', 'phone_number']

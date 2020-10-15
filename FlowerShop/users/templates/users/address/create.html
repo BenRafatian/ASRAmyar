@@ -1,0 +1,11 @@
+{% extends "shop/base.html" %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+    <div>
+        <form method="post">
+            <p>{{ form|crispy }}</p>
+            <p><input type="submit" value="Add Address" name="address"/></p>
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock content %}

@@ -32,25 +32,17 @@
     <br>
     <div class="row">
         <div class="col col-2"></div>
+        <!-- Change Information Modal -->
         <div class="col col-5">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><b>E-mail</b>: {{ user.email }}</li>
                 <li class="list-group-item"><b>First Name</b>: {{ user.first_name }}</li>
                 <li class="list-group-item"><b>Last Name</b>: {{ user.last_name }}</li>
             </ul>
-            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangeInformation" name="info">
+            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangeInformation">
                 Change Information
             </button>
         </div>
-        <div class="col col-5">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Password</b>: *****</li>
-            </ul>
-            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangePassword" name="password">
-                Change Password
-            </button>
-        </div>
-        <!-- Change Information Modal -->
         <div class="modal fade" id="ChangeInformation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -63,7 +55,7 @@
                     <div class="modal-body">
                         <form class="order-form" method="post">
                             <p>{{ user_form|crispy }}</p>
-                            <p><input type="submit" value="Change Info" /></p>
+                            <p><input type="submit" value="Change Info" name="info"/></p>
                             {% csrf_token %}
                         </form>
                     </div>
@@ -71,6 +63,14 @@
             </div>
         </div>
         <!-- Change Password Modal -->
+        <div class="col col-5">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Password</b>: *****</li>
+            </ul>
+            <button type="submit" value="test" class="btn btn-primary" data-toggle="modal" data-target="#ChangePassword" >
+                Change Password
+            </button>
+        </div>
         <div class="modal fade" id="ChangePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -83,7 +83,7 @@
                     <div class="modal-body">
                         <form class="order-form" method="post">
                             <p>{{ pass_form|crispy }}</p>
-                            <p><input type="submit" value="Change Password" /></p>
+                            <p><input type="submit" value="Change Password" name="password"/></p>
                             {% csrf_token %}
                         </form>
                     </div>
