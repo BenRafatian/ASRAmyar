@@ -5,17 +5,18 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
-from django.views.generic import DetailView, CreateView, UpdateView
+from django.views.generic import DetailView, CreateView, UpdateView, ListView, DeleteView
 from django.contrib.auth import update_session_auth_hash
 
 
-from orders.models import Order
+from orders.models import Order, Address
 from .models import Profile
 from .forms import (
     UserRegisterForm,
     UserChangeForm,
     ProfileUpdateForm,
-    AddressCreateForm
+    AddressCreateForm,
+    AddressUpdateForm
 )
 
 
@@ -107,10 +108,6 @@ class ProfileView(DetailView):
         return super(ProfileView, self).dispatch(request, *args, **kwargs)
 
 
-# class ProfileUpdateView(UpdateView):
-#     model = User
-
-
 @login_required
 def address_create(request):
     profile = request.user.profile
@@ -133,6 +130,33 @@ def address_create(request):
 
 
 # TODO: create address show view
-@login_required
-def address(request):
-    pass
+class AddressListView(ListView):
+    model = Address
+    context_object_name = 'addresses'
+    template_name = "users/address/list.html"
+
+    def get_queryset(self):
+        return self.model.objects.filter(profile=self.request.user.profile)
+
+
+class AddressDetailView(DetailView):
+    model = Address
+    context_object_name = "address"
+    template_name = "users/address/detail.html"
+
+    def get_queryset(self):
+        return self.model.objects.filter(profile=self.request.user.profile)
+
+
+class AddressUpdateView(UpdateView):
+    model = Address
+    form_class = AddressUpdateForm
+
+    def get_form_kwargs(self):
+        kwargs = super(AddressUpdateView, self).get_form_kwargs()
+        kwargs['profile'] = self.request.user.profile
+        return kwargs
+
+
+class AddressDeleteView(DeleteView):
+    model = Address

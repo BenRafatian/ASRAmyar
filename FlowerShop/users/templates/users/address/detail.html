@@ -1,0 +1,23 @@
+{% extends "shop/base.html" %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+    <div>
+        <ul>
+            <li>
+                {{ address.address_detail }}
+            </li>
+            <li>
+                {{ address.state }}
+            </li>
+            <li>
+                {{ address.city }}
+            </li>
+            <li>
+                {{ address.postal_code }}
+            </li>
+            <li>
+                {{ address.phone_number }}
+            </li>
+        </ul>
+    </div>
+{% endblock content %}
