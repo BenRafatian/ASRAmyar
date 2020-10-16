@@ -53,7 +53,7 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form class="order-form" method="post">
+                        <form class="order-form" method="post" action="{% url 'users:profile_update' %}">
                             <p>{{ user_form|crispy }}</p>
                             <p><input type="submit" value="Change Info" name="info"/></p>
                             {% csrf_token %}

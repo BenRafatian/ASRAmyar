@@ -5,7 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, UpdateView
+from django.contrib.auth import update_session_auth_hash
+
 
 from orders.models import Order
 from .models import Profile
@@ -35,10 +37,9 @@ def register(request):
 def profile_update(request):
 
     user = request.user
-    # TODO: if request.method=="POST" and "password_change_button_name" in request.POST --> user password form and same for informatinon form
     if request.method == 'POST' and 'password' in request.POST:
         data = request.POST
-        print(data)
+        print('password change is in progress')
         pass_form = PasswordChangeForm(data=data, user=user)
         profile_form = ProfileUpdateForm(request.POST,
                                          request.FILES,
@@ -46,13 +47,15 @@ def profile_update(request):
         if pass_form.is_valid():
             pass_form.save()
             profile_form.save()
+            update_session_auth_hash(request, pass_form.user)
             messages.success(
                 request, f'Your account\'s informations has been updated!')
 
-            return redirect('users:profile_update')
+            return redirect('users:profile')
 
     elif request.method == 'POST' and 'info' in request.POST:
         data = request.POST
+        print('info change is in progress')
         print(data)
         user_form = UserChangeForm(data=data, instance=user)
         profile_form = ProfileUpdateForm(request.POST,
@@ -63,8 +66,7 @@ def profile_update(request):
             profile_form.save()
             messages.success(
                 request, f'Your account\'s password has been updated!')
-
-            return redirect('users:profile_update')
+            return redirect('users:profile')
     else:
         email = request.user.email
         first_name = request.user.first_name
@@ -103,6 +105,10 @@ class ProfileView(DetailView):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super(ProfileView, self).dispatch(request, *args, **kwargs)
+
+
+# class ProfileUpdateView(UpdateView):
+#     model = User
 
 
 @login_required
