@@ -37,39 +37,13 @@ class ProfileUpdateForm(forms.ModelForm):
 
 class AddressCreateForm(forms.ModelForm):
 
-    def __init__(self, profile, *args, **kwargs):
-        super(AddressCreateForm, self).__init__(*args, **kwargs)
-        self.profile = profile
-
-    def save(self, commit=True):
-        instance = super(AddressCreateForm, self).save(commit=False)
-        if not instance.pk:
-            instance.profile = self.profile
-        if commit:
-            instance.save()
-        return instance
-
     class Meta:
         model = Address
         fields = ['id', 'address_detail', 'state',
                   'postal_code', 'city', 'phone_number']
 
-# TODO: fix this form
-
 
 class AddressUpdateForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super(AddressUpdateForm, self).__init__(*args, **kwargs)
-        self.profile = self.instance.profile
-
-    def save(self, commit=True):
-        instance = super(AddressUpdateForm, self).save(commit=False)
-        if not instance.pk:
-            instance.profile = self.profile
-        if commit:
-            instance.save()
-        return instance
 
     class Meta:
         model = Address

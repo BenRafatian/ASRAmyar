@@ -15,7 +15,7 @@ urlpatterns = [
     path('profile/update/', views.profile_update, name='profile_update'),
 
     path('address/', views.AddressListView.as_view(), name='address_list'),
-    path('address/create/', views.address_create, name='address_create'),
+    path('address/create/', views.AddressCreateView.as_view(), name='address_create'),
     path('address/<int:pk>/', views.AddressDetailView.as_view(),
          name='address_detail'),
     path('address/update/<int:pk>/',

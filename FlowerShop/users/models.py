@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
@@ -31,7 +32,7 @@ class Profile(models.Model):
 
 class Address(models.Model):
 
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     address_detail = models.CharField(max_length=250)
     state = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=10)
@@ -39,3 +40,9 @@ class Address(models.Model):
     phone_regex = RegexValidator(
         regex=r'(0|\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}')
     phone_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.address_detail
+
+    def get_absolute_url(self):
+        return reverse("users:address_detail", kwargs={"pk": self.pk})

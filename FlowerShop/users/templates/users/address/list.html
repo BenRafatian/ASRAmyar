@@ -6,11 +6,12 @@
         <ul>
         {% if addresses %}
             {% for address in addresses  %}
-                <li>{{ address.address_detail }}</li>
+                <li><a href="{% url 'users:address_detail' address.id %}">{{ address.address_detail }}</a></li>
             {% endfor %}   
         {% else %}
             You have not entered any addresses yet.
         {% endif %}
         </ul>
+        <p><a href="{% url 'users:address_create' %}">Create New Address</a></p>
     </div>
 {% endblock content %}

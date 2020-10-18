@@ -19,5 +19,6 @@
                 {{ address.phone_number }}
             </li>
         </ul>
+        <p><a href="{% url 'users:address_update' address.id %}">Update Address</a></p>
     </div>
 {% endblock content %}

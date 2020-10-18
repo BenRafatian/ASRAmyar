@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic import DetailView, CreateView, UpdateView, ListView, DeleteView
 from django.contrib.auth import update_session_auth_hash
@@ -89,7 +90,7 @@ def profile_update(request):
     return render(request=request, template_name='users/update.html', context=context)
 
 
-class ProfileView(DetailView):
+class ProfileView(LoginRequiredMixin, DetailView):
     model = User
     context_object_name = 'profile'
     template_name = "users/profile.html"
@@ -108,29 +109,18 @@ class ProfileView(DetailView):
         return super(ProfileView, self).dispatch(request, *args, **kwargs)
 
 
-@login_required
-def address_create(request):
-    profile = request.user.profile
+class AddressCreateView(LoginRequiredMixin, CreateView):
+    model = Address
+    template_name = "users/address/create.html"
+    form_class = AddressCreateForm
 
-    # TODO: if we are allowing only one address we should permit this function for creating more
-    if profile.address:
-        return
-    if request.method == "POST":
-        form = AddressCreateForm(profile=profile, data=request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('users:profile')
-    else:
-        form = form(profile=profile)
-    context = {
-        'form': form
-    }
-    return render(request=request, template_name="users/address/create.html", context=context)
+    def form_valid(self, form):
+        form.instance.profile = self.request.user.profile
+        return super().form_valid(form=form)
 
 
 # TODO: create address show view
-class AddressListView(ListView):
+class AddressListView(LoginRequiredMixin, ListView):
     model = Address
     context_object_name = 'addresses'
     template_name = "users/address/list.html"
@@ -139,7 +129,7 @@ class AddressListView(ListView):
         return self.model.objects.filter(profile=self.request.user.profile)
 
 
-class AddressDetailView(DetailView):
+class AddressDetailView(LoginRequiredMixin, DetailView):
     model = Address
     context_object_name = "address"
     template_name = "users/address/detail.html"
@@ -148,15 +138,15 @@ class AddressDetailView(DetailView):
         return self.model.objects.filter(profile=self.request.user.profile)
 
 
-class AddressUpdateView(UpdateView):
+class AddressUpdateView(LoginRequiredMixin, UpdateView):
     model = Address
     form_class = AddressUpdateForm
+    template_name = "users/address/update.html"
 
-    def get_form_kwargs(self):
-        kwargs = super(AddressUpdateView, self).get_form_kwargs()
-        kwargs['profile'] = self.request.user.profile
-        return kwargs
+    def form_valid(self, form):
+        form.instance.profile = self.request.user.profile
+        return super().form_valid(form=form)
 
 
-class AddressDeleteView(DeleteView):
+class AddressDeleteView(LoginRequiredMixin, DeleteView):
     model = Address
