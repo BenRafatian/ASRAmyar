@@ -1,0 +1,12 @@
+{% extends "shop/base.html" %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+    <div>
+        <form method="post">
+            <h3>Delete Address</h3>
+            <p><input class="btn-danger" type="submit" value="Delete Address" name="address"/></p>
+            <p><a href="{% url 'users:address_detail' address.id %}">Cancel</a></p>
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock content %}

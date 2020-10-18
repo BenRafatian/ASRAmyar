@@ -20,5 +20,6 @@
             </li>
         </ul>
         <p><a href="{% url 'users:address_update' address.id %}">Update Address</a></p>
+        <p><a href="{% url 'users:address_delete' address.id %}">Delete Address</a></p>
     </div>
 {% endblock content %}

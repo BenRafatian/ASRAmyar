@@ -1,14 +1,14 @@
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import DetailView, CreateView, UpdateView, ListView, DeleteView
 from django.contrib.auth import update_session_auth_hash
-
 
 from orders.models import Order, Address
 from .models import Profile
@@ -138,7 +138,7 @@ class AddressDetailView(LoginRequiredMixin, DetailView):
         return self.model.objects.filter(profile=self.request.user.profile)
 
 
-class AddressUpdateView(LoginRequiredMixin, UpdateView):
+class AddressUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Address
     form_class = AddressUpdateForm
     template_name = "users/address/update.html"
@@ -147,6 +147,25 @@ class AddressUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.profile = self.request.user.profile
         return super().form_valid(form=form)
 
+    # This function allows user to change only their own addresses
+    def test_func(self):
+        address = self.get_object()
+        if self.request.user == address.profile.user:
+            return True
+        return False
 
-class AddressDeleteView(LoginRequiredMixin, DeleteView):
+
+class AddressDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Address
+    template_name = "users/address/delete_confirm.html"
+    context_object_name = "address"
+    # success_url = reversed()
+
+    def test_func(self):
+        address = self.get_object()
+        if self.request.user == address.profile.user:
+            return True
+        return False
+
+    def get_success_url(self):
+        return reverse_lazy('users:address_list')
