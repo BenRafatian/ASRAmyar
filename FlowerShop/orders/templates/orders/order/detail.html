@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="list-group">
+    
+    {% if order %}
+        <h2>{{ order }}</h2>
+        <h4>Items</h4>
+        {% for order_item in order.get_order_items %}                
+            <a href="{{ order_item.product.get_absolute_url }}" class="list-group-item list-group-item-action">{{ order_item.product }}</a>
+            
+        {% endfor %}
+    {% endif %}
+            
+</div>
+
+
+
+{% endblock content %}
