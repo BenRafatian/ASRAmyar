@@ -49,23 +49,23 @@ class Category(MPTTModel):
             products.append(i)
         products.append(Product.objects.filter(category__name=self.name))
         return products
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         if (self.parent == None):
- 
+
             return reverse('shop:ProductListByCategory',
-                       args=[self.slug])
+                           args=[self.slug])
         else:
-            slug=self.slug
+            slug = self.slug
             parents = self.get_ancestors()
             parents = parents.reverse()
             for parent in parents:
                 slug = parent.slug + "/" + slug
             return reverse('shop:ProductListByCategory',
-                        args=[slug])
-
+                           args=[slug])
 
 
 class Product(models.Model):
@@ -90,12 +90,8 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        
+
         return reverse('shop:product', args=[str(self.slug)])
-
-
-
-
 
     def get_cat_list(self):
         k = self.category

@@ -22,6 +22,12 @@ class Order(models.Model):
     class Meta:
         ordering = ('-created',)
 
+    @property
+    def get_order_items(self):
+        items = [i for i in OrderItem.objects.filter(order=self.pk)]
+
+        return items
+
     def __str__(self):
         return f'Order {self.id}'
 

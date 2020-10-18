@@ -9,10 +9,10 @@
   <ul class="root">
     {% recursetree categories %}
     <li>
-      <a href="{{node.get_absolute_url }}" class="btn btn-secondary">{{ node.name }}</a>
+      <a href="{{ node.get_absolute_url }}" class="btn btn-secondary">{{ node.name }}</a>
       {% if not node.is_leaf_node %}
       <ul class="children">
-        <a href="{{node.get_absolute_url }}">{{ children }} </a>
+        <a href="{{ node.get_absolute_url }}">{{ children }} </a>
       </ul>
       {% endif %}
     </li>
