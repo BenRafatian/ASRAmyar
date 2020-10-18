@@ -1,11 +1,38 @@
 {% extends "shop/base.html" %} 
 {% load crispy_forms_tags %} 
 {% block content %}
-    <div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Overview</a
+            >
+        </li>
+        <li>
+            <a href="{% url 'users:profile_update' %}" class="btn btn-secondary"
+                >Profile Information</a
+            >
+        </li>
+        <li><a href="{% url 'orders:orders' %}" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+        <li><a href="{% url 'users:address_list' %}" class="btn btn-secondary">Addresses</a></li>
+        <li>
+            <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Update Address -->
+<h1>Update Address</h1>
+<div class="row">
+    <div class="col col-8">
         <form method="post">
             <p>{{ form|crispy }}</p>
             <p><input type="submit" value="Update Address" name="address"/></p>
             {% csrf_token %}
         </form>
     </div>
+</div>
 {% endblock content %}

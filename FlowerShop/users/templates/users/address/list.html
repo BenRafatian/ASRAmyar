@@ -1,17 +1,41 @@
 {% extends "shop/base.html" %} 
 {% load crispy_forms_tags %} 
 {% block content %}
-    <div>
-        
-        <ul>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Overview</a
+            >
+        </li>
+        <li>
+            <a href="{% url 'users:profile_update' %}" class="btn btn-secondary"
+                >Profile Information</a
+            >
+        </li>
+        <li><a href="{% url 'orders:orders' %}" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+        <li><a href="{% url 'users:address_list' %}" class="btn btn-secondary">Addresses</a></li>
+        <li>
+            <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Addresses -->
+<h1>My Addresses</h1>
+<div>
+    <ul class="list-group list-group-flush">
         {% if addresses %}
             {% for address in addresses  %}
-                <li><a href="{% url 'users:address_detail' address.id %}">{{ address.address_detail }}</a></li>
+                <li class="list-group-item"><a href="{% url 'users:address_detail' address.id %}">{{ address.address_detail }}</a></li>
             {% endfor %}   
         {% else %}
             You have not entered any addresses yet.
         {% endif %}
-        </ul>
-        <p><a href="{% url 'users:address_create' %}">Create New Address</a></p>
-    </div>
+    </ul>
+    <p><a href="{% url 'users:address_create' %}">Create New Address</a></p>
+</div>
 {% endblock content %}

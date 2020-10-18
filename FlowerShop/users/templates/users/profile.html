@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<!-- Sidebar -->
 <div id="sidebar">
     <ul>
         <li>
@@ -22,6 +23,8 @@
         </li>
     </ul>
 </div>
+
+<!-- User Information -->
 <div class="content-section">
     <div class="media m-1">
             <img
@@ -50,13 +53,15 @@
         </div>
     </div>
 </div>
+
+<!-- Last Orders -->
 <div class="content-section">
     <div class="row">
         <div class="col col-2"></div>
         <div class="col col-8">
             {% if last_orders %}
                 {% for order in last_orders %}
-                    <div class="btn btn-info disabled">order_id: {{ order.id }}</div>
+                    <a href="{% url 'orders:order_detail' order.id %}" class="btn btn-info">order_id: {{ order.id }}</a>
                     <ul>
                         {% if order.get_order_items %}
                             {% with order.get_order_items as order_items %}

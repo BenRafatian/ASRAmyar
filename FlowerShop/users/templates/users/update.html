@@ -1,4 +1,8 @@
-{% extends "shop/base.html" %} {% load crispy_forms_tags %} {% block content %}
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- Sidebar -->
 <div id="sidebar">
     <ul>
         <li>
@@ -11,14 +15,15 @@
                 >Profile Information</a
             >
         </li>
-        <li><a href="#" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="{% url 'orders:orders' %}" class="btn btn-secondary">My Orders</a></li>
         <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
-        <li><a href="{% url users:address_list %}" class="btn btn-secondary">Addresses</a></li>
+        <li><a href="{% url 'users:address_list' %}" class="btn btn-secondary">Addresses</a></li>
         <li>
             <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
         </li>
     </ul>
 </div>
+<!-- Update Information Forms -->
 <div class="content-section">
     <div class="media m-1">
             <img
@@ -92,21 +97,5 @@
             </div>
         </div>
     </div>
-        <!-- <form method="POST" class="order-form">
-          <div class="col">
-            <p>{{ user_form|crispy }}</p>
-          </div>
-    
-          <p><input type="submit" value="Change Info" /></p>
-          {% csrf_token %}
-        </form>
-    
-        <form method="POST" class="order-form">
-          <div class="col">
-            <p>{{ pass_form|crispy }}</p>
-          </div>
-          <p><input type="submit" value="Change Password" /></p>
-          {% csrf_token %}
-        </form> -->
 </div>
 {% endblock content %}

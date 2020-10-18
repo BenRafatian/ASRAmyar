@@ -1,12 +1,39 @@
 {% extends "shop/base.html" %} 
 {% load crispy_forms_tags %} 
 {% block content %}
-    <div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Overview</a
+            >
+        </li>
+        <li>
+            <a href="{% url 'users:profile_update' %}" class="btn btn-secondary"
+                >Profile Information</a
+            >
+        </li>
+        <li><a href="{% url 'orders:orders' %}" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+        <li><a href="{% url 'users:address_list' %}" class="btn btn-secondary">Addresses</a></li>
+        <li>
+            <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Confirm delete -->
+<h1>Delete Address</h1>
+<div class="row">
+    <div class="col col-8">
         <form method="post">
-            <h3>Delete Address</h3>
-            <p><input class="btn-danger" type="submit" value="Delete Address" name="address"/></p>
+            <h4>Do you want to delete: <div class="disabled">{{ address.address_detail }}</div></h4>
+            <p><button class="btn btn-danger" type="submit" name="address"/>Delete Address</button></p>
             <p><a href="{% url 'users:address_detail' address.id %}">Cancel</a></p>
             {% csrf_token %}
         </form>
     </div>
+</div>
 {% endblock content %}

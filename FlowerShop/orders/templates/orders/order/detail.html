@@ -2,13 +2,36 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<!-- Sidebar -->
+<div id="sidebar">
+    <ul>
+        <li>
+            <a href="{% url 'users:profile' %}" class="btn btn-secondary"
+                >Profile Overview</a
+            >
+        </li>
+        <li>
+            <a href="{% url 'users:profile_update' %}" class="btn btn-secondary"
+                >Profile Information</a
+            >
+        </li>
+        <li><a href="{% url 'orders:orders' %}" class="btn btn-secondary">My Orders</a></li>
+        <li><a href="#" class="btn btn-secondary">Favorite Products</a></li>
+        <li><a href="{% url 'users:address_list' %}" class="btn btn-secondary">Addresses</a></li>
+        <li>
+            <a href="{% url 'users:logout' %}" class="btn btn-secondary">Logout</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Order Details -->
 <div class="list-group">
     
     {% if order %}
         <h2>{{ order }}</h2>
         <h4>Items</h4>
         {% for order_item in order.get_order_items %}                
-            <a href="{{ order_item.product.get_absolute_url }}" class="list-group-item list-group-item-action">{{ order_item.product }}</a>
+            <a href="{{ order_item.product.get_absolute_url }}" class="list-group-item list-group-item-action list-group-item-dark">{{ order_item.product }}</a>
             
         {% endfor %}
     {% endif %}
