@@ -78,6 +78,19 @@
     </nav>
     <!-- Body -->
     <div class="container-fluid">
+        {% if messages %}
+            <div class="row">
+                <div class="col-sm col-sm-offset-3">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
+
+            </div>
+        {% endif %}
+
         {% block content %}
 
         {% endblock content %}

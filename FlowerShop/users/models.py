@@ -32,7 +32,7 @@ class Profile(models.Model):
 
 class Address(models.Model):
 
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
     address_detail = models.CharField(max_length=250)
     state = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=10)

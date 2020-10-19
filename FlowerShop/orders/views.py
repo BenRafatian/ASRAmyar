@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView
+from django.contrib import messages
+
 
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
@@ -14,7 +16,7 @@ from cart.cart import Cart
 def order_create(request):
     cart = Cart(request)
 
-    if request.method == 'POST':
+    if request.method == 'POST' and cart:
         customer = request.user.profile
         address = request.user.profile.address
         form = OrderCreateForm(customer, address, request.POST, request.FILES)
@@ -28,9 +30,21 @@ def order_create(request):
             # clear the cart
             cart.clear()
             order_created.delay(order.id)
+            print('hello')
             return render(request,
                           'orders/order/created.html',
                           {'order': order})
+    elif request.method == "POST" and not cart:
+        if request.user.profile.address:
+            print('no order item')
+            customer = request.user.profile
+            address = request.user.profile.address
+
+            form = OrderCreateForm(customer, address)
+            messages.error(request=request, message="No Item in Order")
+            return render(request,
+                          'orders/order/create.html',
+                          {'cart': cart, 'form': form})
     else:
         if request.user.profile.address:
             customer = request.user.profile
