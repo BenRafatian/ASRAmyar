@@ -9,6 +9,7 @@ Results
 
 {% block content %}
 
+<!-- Sidebar -->
 <div id="sidebar">
     <h3>Categories</h3>
     <ul class="root">
@@ -31,16 +32,19 @@ Results
 
 <h1>Search Results:</h1>
 <div id="main" class="product-list">
-    {% for product in products %}
-    <div class="item">
-        <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "images/no_image.png" %}{% endif %}">
-        <a href='{{ product.get_absolute_url }}'>{{ product }}
-        </a>
-        <br>
-        price:
-        {{product.price}}$
-    </div>
-    {% endfor %}
-
+    {% if products %}
+        {% for product in products %}
+        <div class="item">
+            <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "images/no_image.png" %}{% endif %}">
+            <a href='{{ product.get_absolute_url }}'>{{ product }}
+            </a>
+            <br>
+            price:
+            {{product.price}}$
+        </div>
+        {% endfor %}
+    {% else %}
+        <div>No Items in Your search query</div>
+    {% endif %}
 </div>
 {% endblock content %}

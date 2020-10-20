@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -119,8 +119,14 @@ class AddressCreateView(LoginRequiredMixin, CreateView):
         form.instance.profile = self.request.user.profile
         return super().form_valid(form=form)
 
+    def get_success_url(self):
+        next_url = self.request.GET.get('next', None)
+        if next_url:
+            return str(next_url)
+        else:
+            return reverse("users:profile")
 
-# TODO: create address show view
+
 class AddressListView(LoginRequiredMixin, ListView):
     model = Address
     context_object_name = 'addresses'

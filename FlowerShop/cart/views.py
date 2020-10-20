@@ -23,7 +23,9 @@ def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
-    return redirect('cart:cart')
+    if cart:
+        return redirect("cart:cart")
+    return redirect('shop:products')
 
 
 def cart_detail(request):
@@ -39,3 +41,9 @@ def cart_detail(request):
         'recommended_products': recommended_products
     }
     return render(request, 'cart/detail.html', context)
+
+
+def cart_clear(request):
+    cart = Cart(request=request)
+    cart.clear()
+    return redirect("shop:products")
